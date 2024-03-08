@@ -164,3 +164,138 @@ class Theatre {
                                             String junk = input.nextLine();
 
                                         }
+                                    } else if (row == 2) {
+                                        try {
+                                            System.out.print("Enter the seat number you prefer to reserve(1-16): ");
+                                            seat = input.nextInt();
+                                            if (seat >= 1 && seat <= 16) {            //check the seat is in the range
+                                                try {
+                                                    System.out.print("Enter the ticket price: \u20AC");
+                                                    price = input.nextDouble();
+                                                    if(price>0 && price<=20){
+                                                        Ticket myTicket = new Ticket(row, seat, name, surname, email, price);
+
+                                                        seat = seat - 1;
+                                                        if (row_2[seat] == 0) {
+                                                            System.out.print("You purchased the ticket successfully for the seat " + (seat + 1) + " in row " + row + ". Enjoy the movie!!!\n");
+                                                            row_2[seat] = 1;
+
+                                                            tickets_array.add(myTicket.person.getName());                    //https://www.javatpoint.com/add-elements-to-array-in-java#:~:text=(newArr))%3B%20%7D%20%7D-,Using%20ArrayList,using%20the%20toArray()%20method.
+                                                            tickets_array.add(myTicket.person.getSurname());
+                                                            tickets_array.add(myTicket.person.getEmail());
+                                                            tickets_array.add(String.valueOf(myTicket.getRow()));
+                                                            tickets_array.add(String.valueOf(myTicket.getSeat()));
+                                                            tickets_array.add(String.valueOf(myTicket.getPrice()));
+
+                                                        } else {
+                                                            System.out.print("The seat is already reserved.Try another one.\n");
+                                                        }
+
+                                                    }else{
+                                                        System.out.println("Price of the ticket is out of range.\n");
+                                                    }
+
+
+                                                }catch (Exception e){                        //https://www.w3schools.com/java/java_try_catch.asp
+                                                    System.out.println("Invalid ticket price.Recheck again.");
+                                                    String junk = input.nextLine();
+                                                }
+                                            } else {
+                                                System.out.println("The seat number is out of range.Row 2 has only 16 seats.Try again.\n");     //without in the seat range pop out this
+                                            }
+                                        }
+                                        catch (Exception e){
+                                            System.out.println("Given input is not a number.Please enter the seat number you want to reserve.\n");
+                                            String junk = input.nextLine();
+
+                                        }
+
+                                    } else {
+
+                                        try {
+                                            System.out.print("Enter the seat number you prefer to reserve(1-20): ");
+                                            seat = input.nextInt();
+
+
+                                            if (seat >= 1 && seat <= 20) {
+                                                try {
+                                                    System.out.print("Enter the ticket price: \u20AC");
+                                                    price = input.nextDouble();
+                                                    if(price>0 && price<=20){
+                                                        Ticket myTicket = new Ticket(row, seat, name, surname, email, price);
+
+                                                        seat = seat - 1;
+
+                                                        if (row_3[seat] == 0) {
+                                                            System.out.println("You purchased the ticket successfully for the seat "+(seat+1)+" in row "+row+". Enjoy the movie!!!\n");
+                                                            row_3[seat] = 1;
+
+                                                            tickets_array.add(myTicket.person.getName());
+                                                            tickets_array.add(myTicket.person.getSurname());
+                                                            tickets_array.add(myTicket.person.getEmail());
+                                                            tickets_array.add(String.valueOf(myTicket.getRow()));
+                                                            tickets_array.add(String.valueOf(myTicket.getSeat()));
+                                                            tickets_array.add(String.valueOf(myTicket.getPrice()));
+
+                                                        } else {
+                                                            System.out.print("The seat is already reserved.Try another one.\n");
+
+                                                        }
+
+                                                    }else{
+                                                        System.out.println("Price of the ticket is out of range.\n");
+                                                    }
+
+
+                                                }catch (Exception e) {
+                                                    System.out.println("Invalid ticket price.Recheck again.");
+                                                    String junk = input.nextLine();
+                                                }
+
+                                            } else {
+                                                System.out.println("The seat number is out of range.Row 3 has only 20 seats.Try again.\n");
+                                            }
+
+                                        }
+                                        catch (Exception e){
+                                            System.out.println("Given input is not a number.Please enter the seat number you want to reserve.\n");
+                                            String junk = input.nextLine();
+
+                                        }
+
+                                    }
+                                } else {
+                                    System.out.println("The row number is out of range,please check your row number and try again.\n");
+                                }
+                            } else {
+                                System.out.println("Given email is not a proper email.Please check your email and try it again.");
+                            }
+                        } else {
+                            System.out.println("Given surname is not a proper string.Please check your surname and try it again.");
+                        }
+
+                    } else {
+                        System.out.println("Given name is not a proper string.Please check your name and try it again.");
+
+                    }
+
+                } catch (Exception e) {
+                    System.out.println("Given input is not a number.Please enter the row number of the seat you want to reserve.\n");
+                    String junk = input.nextLine();
+                }
+
+            }
+
+            System.out.println("\n");
+            System.out.print("Do you want to reserve another seat(yes/no): ");            //if choice input is equals to "yes" again pop out name,if it "no" breaks the loop and prints the menu.if it is another input prints something went wrong message.
+            choice = input.next();
+            if (choice.equalsIgnoreCase("no")) {
+                break;
+            }else if(choice.equalsIgnoreCase("yes")){
+                continue;
+
+            }else{
+                System.out.println("Something went wrong.Enter \"yes\" to continue and \"no\" to return to the main menu \n");
+            }
+        }
+    }
