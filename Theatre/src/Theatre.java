@@ -433,3 +433,44 @@ class Theatre {
                                 String junk = input.nextLine();
 
                             }
+
+
+                        } else if (row == 2) {
+                            try{
+                                System.out.print("Enter seat number(1-16): ");
+                                int seat = input.nextInt();
+                                if (seat >= 1 && seat <= 16) {
+                                    if (row_2[seat - 1] == 1) {
+
+
+                                        //to remove from the arraylist
+                                        for (int i = 0; i < ticket_array.size(); i += 6) {
+                                            if ((ticket_array.get(i + 2).equals(email_cancel))){
+                                                if (Objects.equals(ticket_array.get(i + 3), String.valueOf(row)) && Objects.equals(ticket_array.get(i + 4), String.valueOf(seat)) ){
+                                                    for (int j = 6; j > 0; j--) {
+                                                        ticket_array.remove(i);
+
+                                                    }
+                                                    System.out.println("Cancelled the Ticket successfully in row "+row+" seat "+seat+".\n");
+                                                    row_1[seat - 1] = 0;
+                                                }
+                                                else{
+                                                    System.out.println("This seat is not reserved under this email\n");
+                                                }
+
+                                            }
+                                        }
+
+
+                                    } else {
+                                        System.out.println("Check the seat and row number again.This seat is not reserved\n");
+                                    }
+                                } else {
+                                    System.out.println("The seat number is out of range.Row 2 has only 16 seats.Try again.\n");
+                                }
+                            }
+                            catch (Exception e){
+                                System.out.println("Given input is not a number.Please enter the seat number you want to cancel.\n");
+                                String junk = input.nextLine();
+
+                            }
