@@ -354,3 +354,82 @@ class Theatre {
         System.out.println("\n");
 
     }
+
+
+
+    private static void cancel_ticket(ArrayList<String> ticket_array) {
+        Scanner input = new Scanner(System.in);                                                //opening a Scanner library to store inputs
+        System.out.println("\n-----------------CANCEL TICKETS-----------------------\n");
+        while (true) {
+            System.out.print("Enter your email which you entered when you reserved the seat: ");
+
+            String email_cancel = input.next();
+            boolean validate = false;
+            if (validate == false) {
+                for (int k = 0; k < ticket_array.size(); k += 6) {                          //checking the user input email is includes in the ticket array
+                    if ((ticket_array.get(k + 2).equals(email_cancel))) {
+                        validate = true;
+                    }
+
+                }
+            }
+
+            if (validate == false) {
+                System.out.println("The entered email is invalid.Please try again\n");      //if user input email is not in the array prints invalid email
+                System.out.print("Do you want to cancel seat(yes/no): ");
+                String choice = input.next();       //ask
+                if (choice.equalsIgnoreCase("yes")) {                          //if user input something except yes or no to choice it will direct to main menu
+                    continue;
+                } else {
+                    System.out.println("Invalid input.Again to the Main Menu\n");
+                    break;
+
+                }
+            }
+
+            try{
+
+                if (validate == true) {                           //if user input email in the array execute the below code
+
+                    System.out.print("Enter row number(1-3): ");
+                    int row = input.nextInt();
+                    if (row > 0 && row < 4) {
+
+                        if (row == 1) {
+                            try{
+                                System.out.print("Enter seat number(1-12): ");
+                                int seat = input.nextInt();
+                                if (seat >= 1 && seat <= 12) {
+                                    if (row_1[seat - 1] == 1) {
+
+
+                                        for (int i = 0; i < ticket_array.size(); i += 6) {
+
+                                            if ((ticket_array.get(i + 2).equals(email_cancel))){     //check the user input email is correct
+                                                if (Objects.equals(ticket_array.get(i + 3), String.valueOf(row)) && Objects.equals(ticket_array.get(i + 4), String.valueOf(seat)) ){    //check the row and seat number is correct under this email
+                                                    for (int j = 6; j > 0; j--) {
+                                                        ticket_array.remove(i);                  //to remove from the arraylist
+
+                                                    }
+                                                        System.out.println("Cancelled the Ticket successfully in row "+row+" seat "+seat+".\n");
+                                                        row_1[seat - 1] = 0;                     //if we remove the elements make seats available
+                                                }
+                                                else{
+                                                    System.out.println("This seat is not reserved under this email\n");
+                                                }
+
+                                            }
+                                                //https://examples.javacodegeeks.com/java-not-equal-example/
+                                        }
+                                    } else {
+                                        System.out.println("Check the seat and row number again.This seat is not reserved\n");
+                                    }
+                                } else {
+                                    System.out.println("The seat number is out of range.Row 1 has only 12 seats.Try again.\n");
+                                }
+                            }
+                            catch (Exception e){
+                                System.out.println("Given input is not a number.Please enter the seat number you want to cancel.\n");
+                                String junk = input.nextLine();
+
+                            }
