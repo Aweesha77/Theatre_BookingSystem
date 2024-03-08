@@ -299,3 +299,58 @@ class Theatre {
             }
         }
     }
+    
+
+    private static void print_seating_area() {
+        System.out.println("\n----------SEATING AREA--------------------------------\n");
+
+        System.out.println("\n");
+        System.out.format("%25s", "* * * * * * * *\n");
+        System.out.format("%25s", "     STAGE     \n");                   //https://stackoverflow.com/questions/16629476/how-to-center-a-print-statement-text
+        System.out.format("%25s", "* * * * * * * *\n");                   //ude print format to make it center
+        System.out.println("\n");
+
+        System.out.format("%10s", " ");
+        for (int i = 0; i <= ROW1 - 1; i++) {
+
+            if (row_1[i] == 0) {
+                System.out.print("O");                                    //if i=0,prints 0 and i=1,prints X
+            } else {
+                System.out.print("X");
+            }
+            if (i == 5) {                                                 //to print the space
+                System.out.print(" ");
+
+            }
+        }
+
+        System.out.println("\n");
+        System.out.format("%8s", " ");
+        for (int i = 0; i <= ROW2 - 1; i++) {
+            if (row_2[i] == 0) {
+                System.out.print("O");
+            } else {
+                System.out.print("X");
+            }
+            if (i == 7) {
+                System.out.print(" ");
+
+            }
+        }
+
+        System.out.println("\n");
+        System.out.format("%6s", " ");
+        for (int i = 0; i <= ROW3 - 1; i++) {
+            if (row_3[i] == 0) {
+                System.out.print("O");
+            } else {
+                System.out.print("X");
+            }
+            if (i == 9) {
+                System.out.print(" ");
+
+            }
+        }
+        System.out.println("\n");
+
+    }
