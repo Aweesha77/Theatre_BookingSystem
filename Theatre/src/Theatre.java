@@ -615,3 +615,36 @@ class Theatre {
             ioe.printStackTrace();
         }
     }
+
+
+
+    private static void load() {
+        try {
+            File file = new File("Theatre.txt");
+            Scanner file_reader = new Scanner(file);
+            while (file_reader.hasNextLine()) {                  //check if there is another line
+                String text = file_reader.nextLine();
+
+                if (text.length() == 12) {
+                    for (int i = 0; i < text.length(); i++) {
+                        row_1[i] = Integer.parseInt(String.valueOf(text.charAt(i)));        //https://www.tutorialspoint.com/java/number_parseint.htm
+                                                                                            //pass string value to integer
+                    }
+                } else if (text.length() == 16) {
+                    for (int i = 0; i < text.length(); i++) {
+                        row_2[i] = Integer.parseInt(String.valueOf(text.charAt(i)));
+                    }
+                } else {
+                    for (int i = 0; i < text.length(); i++) {
+                        row_3[i] = Integer.parseInt(String.valueOf(text.charAt(i)));
+                    }
+                }
+
+
+            }
+            System.out.println("Load successfully");
+            file_reader.close();
+        } catch (IOException e) {
+            System.out.println("Error while reading a file.");
+        }
+    }
