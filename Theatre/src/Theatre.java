@@ -586,3 +586,32 @@ class Theatre {
         }
         System.out.println("\n");
     }
+
+
+
+    private static void save(int[] row_1, int[] row_2, int[] row_3) {            //access these arrays from this method
+        try {
+            FileWriter writer = new FileWriter("Theatre.txt");          //write th the file called "Theatre.txt".if there is not under that name in the relevant directory it creates a new text file
+
+            for (int value : row_1) {
+                writer.write(String.valueOf(value));        //write only string values of the arrays
+            }
+            writer.write("\n");
+
+            for (int value : row_2) {
+                writer.write(String.valueOf(value));
+            }
+            writer.write("\n");
+
+
+            for (int value : row_3) {
+                writer.write(String.valueOf(value));
+            }
+
+            writer.close();                //close the written file
+
+            System.out.println("Array saved to file successfully.");
+        } catch (IOException ioe) {                 //https://stackoverflow.com/questions/2397714/java-try-and-catch-ioexception-must-be-caught-or-declared-to-be-thrown
+            ioe.printStackTrace();
+        }
+    }
