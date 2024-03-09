@@ -648,3 +648,30 @@ class Theatre {
             System.out.println("Error while reading a file.");
         }
     }
+
+
+
+
+    public static void show_tickets_info(ArrayList<String> ticket_array) {
+        System.out.println("\n-----------------TICKETS INFORMATION---------------------\n");
+        double total_price = 0.0;
+        System.out.println("Tickets Info:");
+        System.out.println();
+        int j=1;
+        for (int i = 0; i < ticket_array.size(); i += 6) {
+            System.out.println("TICKET "+(j));
+            j=j+1;
+            System.out.print("Name: " + ticket_array.get(i) + "\n");                    //get details from the ticket_array and print it
+            System.out.print("Surname: " + ticket_array.get(i + 1) + "\n");
+            System.out.print("Email: " + ticket_array.get(i + 2) + "\n");
+            System.out.print("Row: " + ticket_array.get(i + 3) + "\n");
+            System.out.print("Seat: " + ticket_array.get(i + 4) + "\n");
+            System.out.print("Price:\u20AC" + ticket_array.get(i + 5) + "\n");          //"\u20AC" use to print euro mark
+            total_price+= Double. parseDouble(ticket_array.get(i + 5)) ;                //add every ticket price to total price when for loop is iterate
+            System.out.println();
+
+            // https://stackoverflow.com/questions/4816661/how-can-i-assign-the-euro-or-the-pound-symbol-to-a-variable#:~:text=Use%20a%20unicode%20escape%20sequence,%2C%20%5Cu00A3%20the%20Pound%20sign.
+
+        }
+        System.out.println("The income from the tickets is: \u20AC"+total_price);       //https://stackoverflow.com/questions/4816661/how-can-i-assign-the-euro-or-the-pound-symbol-to-a-variable#:~:text=Use%20a%20unicode%20escape%20sequence,%2C%20%5Cu00A3%20the%20Pound%20sign.
+    }
