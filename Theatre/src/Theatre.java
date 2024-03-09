@@ -709,3 +709,19 @@ class Theatre {
 
 
         }
+
+
+
+        for (int i = 0; i < sort_list.size(); i += 6) {
+            System.out.println("Name: " + sort_list.get(i));
+            System.out.println("Surname: " + sort_list.get(i + 1));
+            System.out.println("Email: " + sort_list.get(i + 2));
+            System.out.println("Row: " + sort_list.get(i + 3) );
+            System.out.println("Seat: " + sort_list.get(i + 4) );
+            System.out.println("Price:\u20AC" + sort_list.get(i + 5) );             // https://stackoverflow.com/questions/4816661/how-can-i-assign-the-euro-or-the-pound-symbol-to-a-variable#:~:text=Use%20a%20unicode%20escape%20sequence,%2C%20%5Cu00A3%20the%20Pound%20sign.
+            System.out.println();
+
+
+        }
+    }
+}
