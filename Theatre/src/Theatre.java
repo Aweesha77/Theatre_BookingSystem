@@ -71,8 +71,6 @@ class Theatre {
     }
 
 
-
-
     private static void buy_ticket(ArrayList<String> tickets_array) {                                  //passing array list to buy_ticket
         Scanner input = new Scanner(System.in);                                                        //https://www.programiz.com/java-programming/examples/pass-arraylist-as-function-argument
         System.out.println("\n-----------------BUY TICKETS---------------------------\n");
@@ -356,7 +354,6 @@ class Theatre {
     }
 
 
-
     private static void cancel_ticket(ArrayList<String> ticket_array) {
         Scanner input = new Scanner(System.in);                                                //opening a Scanner library to store inputs
         System.out.println("\n-----------------CANCEL TICKETS-----------------------\n");
@@ -542,7 +539,6 @@ class Theatre {
     }
 
 
-
     private static void show_available() {
         System.out.println("\n-----------------AVAILABLE SEATS----------------------\n");
 
@@ -587,8 +583,6 @@ class Theatre {
         System.out.println("\n");
     }
 
-
-
     private static void save(int[] row_1, int[] row_2, int[] row_3) {            //access these arrays from this method
         try {
             FileWriter writer = new FileWriter("Theatre.txt");          //write th the file called "Theatre.txt".if there is not under that name in the relevant directory it creates a new text file
@@ -617,7 +611,6 @@ class Theatre {
     }
 
 
-
     private static void load() {
         try {
             File file = new File("Theatre.txt");
@@ -640,7 +633,6 @@ class Theatre {
                     }
                 }
 
-
             }
             System.out.println("Load successfully");
             file_reader.close();
@@ -648,8 +640,6 @@ class Theatre {
             System.out.println("Error while reading a file.");
         }
     }
-
-
 
 
     public static void show_tickets_info(ArrayList<String> ticket_array) {
@@ -675,8 +665,6 @@ class Theatre {
         }
         System.out.println("The income from the tickets is: \u20AC"+total_price);       //https://stackoverflow.com/questions/4816661/how-can-i-assign-the-euro-or-the-pound-symbol-to-a-variable#:~:text=Use%20a%20unicode%20escape%20sequence,%2C%20%5Cu00A3%20the%20Pound%20sign.
     }
-
-
 
 
     public static void sort_tickets(ArrayList<String> ticket_array) {
@@ -709,7 +697,6 @@ class Theatre {
 
 
         }
-
 
 
         for (int i = 0; i < sort_list.size(); i += 6) {
