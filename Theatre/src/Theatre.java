@@ -540,3 +540,49 @@ class Theatre {
 
         }
     }
+
+
+
+    private static void show_available() {
+        System.out.println("\n-----------------AVAILABLE SEATS----------------------\n");
+
+        System.out.println("Seats available in row 1: ");
+        for (int i = 0; i < ROW1; i++) {
+            if (row_1[i] == 0) {
+                System.out.print(i + 1);
+                if (i < ROW1 - 1) {                  //the last "," will replace with a "."
+                    System.out.print(", ");
+                } else {
+                    System.out.print(".");
+                }
+            }
+        }
+        System.out.println("\n");
+
+        System.out.println("Seats available in row 2: ");
+        for (int i = 0; i < ROW2; i++) {
+            if (row_2[i] == 0) {
+                System.out.print(i + 1);
+                if (i < ROW2 - 1) {
+                    System.out.print(", ");
+                } else {
+                    System.out.print(".");
+                }
+            }
+        }
+        System.out.println("\n");
+
+        System.out.println("Seats available in row 3: ");
+        for (int i = 0; i < ROW3; i++) {
+            if (row_3[i] == 0) {
+                System.out.print(i + 1);
+                if (i < ROW3 - 1) {
+                    System.out.print(", ");
+                } else {
+                    System.out.print(".");
+                }
+
+            }
+        }
+        System.out.println("\n");
+    }
