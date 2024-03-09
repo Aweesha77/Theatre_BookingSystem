@@ -675,3 +675,37 @@ class Theatre {
         }
         System.out.println("The income from the tickets is: \u20AC"+total_price);       //https://stackoverflow.com/questions/4816661/how-can-i-assign-the-euro-or-the-pound-symbol-to-a-variable#:~:text=Use%20a%20unicode%20escape%20sequence,%2C%20%5Cu00A3%20the%20Pound%20sign.
     }
+
+
+
+
+    public static void sort_tickets(ArrayList<String> ticket_array) {
+        System.out.println("\n-----------------SORTING TICKETS-------------------\n");
+
+
+        ArrayList<String> sort_list = new ArrayList<>();              //create array list called sort_list to save the sorted elements
+                                                                      //https://www.javaprogramto.com/2017/11/selection-sort-in-java.html
+        for (int i = 0; i < ticket_array.size(); i++) {               //use selection sort to sort the tickets
+            sort_list.add(i, ticket_array.get(i));                    //add elements of ticket_array to sort_list array
+        }
+
+        int minIndex;
+        ArrayList<String> temp = new ArrayList<>();
+        for (int start = 0; start < sort_list.size() - 6; start += 6) {   //
+            minIndex = start;
+            for (int i = start + 6; i <= sort_list.size() - 6; i += 6) {   //
+                if (Double.parseDouble(sort_list.get(i + 5)) < Double.parseDouble(sort_list.get(minIndex + 5)))
+                    minIndex = i;     //
+            }
+            for (int i = 0; i < 6; i++) {
+                temp.add(i, sort_list.get(start + i));
+            }
+            for (int i = 0; i < 6; i++) {
+                sort_list.set(start + i, sort_list.get(minIndex + i));
+            }
+            for (int i = 0; i < 6; i++) {
+                sort_list.set(minIndex + i, temp.get(i));
+            }
+
+
+        }
